@@ -1,16 +1,27 @@
 # Smart Money Concept Backtester (SMC Backtester)
 
-هدف: پلتفرم بک‌تست قانون‌محور بر اساس سیگنال‌های Smart Money (FVG, BOS/CHOCH, Orderflow indicators) که به‌صورت ماژولار قابل توسعه است.
+A modular rule-based backtester demonstrating Smart Money Concepts (SMC) indicators.
 
-فایل‌های مهم:
-- backtest.py — اسکریپت نمونه اجرا
-- sample_data.csv — دادهٔ نمونه برای تست سریع
-- indicators/ — پیاده‌سازی اندیکاتورها (پوشه)
-- example.ipynb — نوت‌بوک راهنما
-- results/ — خروجی‌های بک‌تست (equity curves, metrics)
-- strategy_card.md — کارت استراتژی
+## Contents
+- `backtest.py` — sample rule engine (smoke test)
+- `sample_data.csv` — toy dataset for quick verification
+- `indicators/` — custom indicator modules
+- `strategy_card.md` — one-page summary template
 
-نحوه اجرا (محلی):
-1. نصب dependencies: `pip install -r ../../requirements.txt`
-2. اجرا سریع: `python backtest.py --quick`
-3. خروجی daily_returns.csv در همان پوشه تولید می‌شود؛ سپس `scripts/aggregate_metrics.py` را اجرا کن.
+## Quick run
+```bash
+python backtest.py --quick
+Outputs:
+
+daily_returns.csv
+
+equity_curve.csv
+
+Production checklist
+Use point-in-time vendor data
+
+Add slippage & transaction cost models
+
+Add liquidity and capacity constraints
+
+Document sensitivity and parameter ranges

@@ -1,13 +1,10 @@
 # Projects — NeuronAlgo
 
-این پوشه شامل پروژه‌های کلیدی پورتفولیوی NeuronAlgo است:  
-- qlib-ml-pipeline: پیاده‌سازی ML با Qlib (Google Colab ready)  
-- smc-backtester: پلتفرم بک‌تست مبتنی بر Smart Money Concepts  
-- rl-research-platform: محیط تحقیقاتی RL + ML (preview)  
-- open-source-customizations: فُرک و شخصی‌سازی پروژه‌های اوپن‌سورس برای رزومه
+This folder contains the core showcase projects.
 
-برای هر پروژه، فایل‌های زیر را ببینید:
-- README.md — توضیح پروژه و نحوهٔ اجرا
-- roadmap.md — مسیر توسعه و موارد باقی‌مانده
-- notebook/example cells — راهنمای نوت‌بوک
-- results/ — خروجی‌ها (نمودارها، فایل‌های CSV)
+- `qlib-ml-pipeline/` — Qlib-based ML training and workflow (primary demo)  
+- `smc-backtester/` — Smart Money Concept rule-based backtester  
+- `rl-research-platform/` — Reinforcement learning research (experimental)  
+- `open-source-customizations/` — Forked + customized OSS demos
+
+Open each subfolder for run instructions, results, and README for that module.
