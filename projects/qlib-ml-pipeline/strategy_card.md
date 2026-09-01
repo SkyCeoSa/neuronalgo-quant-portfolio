@@ -1,23 +1,32 @@
-# Strategy Card — ML Returns (ml_returns_1)
+# Research Card — Qlib ML Workflow
 
-Brief: Ensemble ML model (LightGBM + small NN) predicting 1-day ahead returns using price/momentum/macro/sentiment features.
+**Public maturity:** optional exploratory notebook  
+**Bundled dataset:** none  
+**Bundled trained model:** none  
+**Production deployment:** outside repository scope
 
-Universe: Highly liquid ETFs & futures (example: SPY, ES futures)
+## Research question
 
-Backtest window: 2005-01-01 → 2024-12-31 (placeholder)
+Can Qlib provide a reproducible public framework for future factor/model experiments once an explicit public dataset and protocol are selected?
 
-Live status: Model training pipeline tested in Colab; LLM-sentiment pipe running since 2025-11 (experimental)
+The current notebook establishes only environment initialization and local dataset access. It intentionally does not publish a performance result.
 
-Key metrics (placeholder):
-- CAGR: 14.0%
-- Volatility: 12.0%
-- Sharpe: 1.17
-- Max Drawdown: -16.2%
+## Evidence required for a model study
 
-Risk controls:
-- Confidence threshold for trades
-- Volatility targeting
-- Daily P&L stop and kill-switch
+Before reporting an ML strategy result, record at minimum:
 
-Notes:
-Replace placeholder metrics with results from `scripts/aggregate_metrics.py` after you run backtests and aggregate daily returns.
+- dataset source/version and instrument universe;
+- feature and label definitions;
+- train/validation/test dates;
+- model class and hyperparameters;
+- random seeds where relevant;
+- transaction costs and execution assumptions;
+- baseline comparisons;
+- IC/return/drawdown metrics with definitions;
+- sensitivity and out-of-sample checks.
+
+Numerical targets can be useful as research gates, but a target is not an observed result. Do not turn aspirational thresholds into claims.
+
+## Risk statement
+
+ML backtests are vulnerable to leakage, multiple testing, regime dependence, cost assumptions, and overfitting. Historical results do not predict or guarantee future returns.

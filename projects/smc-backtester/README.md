@@ -1,27 +1,21 @@
-# Smart Money Concept Backtester (SMC Backtester)
+# SMC Research Metrics Demo
 
-A modular rule-based backtester demonstrating Smart Money Concepts (SMC) indicators.
+This public directory is a deterministic **metrics smoke test** plus design notes for possible Smart Money Concepts research. The current Python file does not implement order blocks, liquidity sweeps, imbalance detection, entries, exits, position sizing, or broker execution.
 
-## Contents
-- `backtest.py` — sample rule engine (smoke test)
-- `sample_data.csv` — toy dataset for quick verification
-- `indicators/` — custom indicator modules
-- `strategy_card.md` — one-page summary template
+The tracked `sample_data.csv` contains a tiny `date,price` fixture. The script converts those prices to simple returns and computes descriptive metrics so reviewers can reproduce code behavior without network access or random fallback data.
 
-## Quick run
+## Run
+
 ```bash
-python backtest.py --quick
-Outputs:
+python projects/smc-backtester/backtest.py
+```
 
-daily_returns.csv
+The default command prints JSON only. Generated review artifacts are opt-in:
 
-equity_curve.csv
+```bash
+python projects/smc-backtester/backtest.py --output-dir /tmp/neuronalgo-smc-demo
+```
 
-Production checklist
-Use point-in-time vendor data
+## Interpretation
 
-Add slippage & transaction cost models
-
-Add liquidity and capacity constraints
-
-Document sensitivity and parameter ranges
+The directory name describes a research direction, not completed evidence. The current output must not be described as an SMC strategy result, a live signal, or a production trading system. Metrics from this fixture do not predict future performance.

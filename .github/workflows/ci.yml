@@ -1,0 +1,49 @@
+name: Public portfolio CI
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+
+      - name: Install base dependencies
+        run: python -m pip install .
+
+      - name: Run deterministic tests
+        run: python -m unittest discover -s tests -v
+
+      - name: Compile Python sources
+        run: python -m compileall -q projects scripts tests
+
+      - name: Check shell syntax
+        run: bash -n launch_neuronalgo.sh
+
+      - name: Run public smoke demos
+        run: |
+          python projects/core/stat_arb_1/backtest.py
+          python projects/smc-backtester/backtest.py
+          python projects/rl-research-platform/example_agent.py
+
+      - name: Verify smoke demos did not mutate tracked content
+        run: |
+          test ! -e projects/core/stat_arb_1/outputs
+          test ! -e projects/smc-backtester/outputs
+          git diff --exit-code

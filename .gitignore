@@ -1,0 +1,48 @@
+# Python environments and caches
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+build/
+dist/
+*.egg-info/
+
+# Notebook/editor/OS artifacts
+.ipynb_checkpoints/
+.DS_Store
+.vscode/
+.idea/
+
+# Secrets and local configuration
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+*.log
+
+# Generated research artifacts
+**/outputs/
+*.html
+*.joblib
+*.pkl
+*.pickle
+*.pt
+*.pth
+*.onnx
+*.parquet
+*.feather
+*.h5
+*.hdf5
+
+# Heavy/local research data
+.qlib/
+qlib_data/
+data/*
+!data/.gitignore

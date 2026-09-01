@@ -1,145 +1,29 @@
-QLIB_NA_WORKFLOW — Complete Qlib ML + Backtest Pipeline
+# Optional Qlib Research Notebook
 
-This repository contains a full, production-ready workflow for building, training, and backtesting quantitative trading models using Microsoft Qlib.
-The notebook is designed to run 100% in Google Colab, with automated setup, workflow generation, MLflow tracking, and backtesting.
+This directory contains a small **exploratory** notebook for reviewers who already have a local [Qlib](https://github.com/microsoft/qlib) environment and dataset. It is not a deployed ML service, a validated alpha model, or a production trading pipeline.
 
-🚀 Features
-✅ 1. Automated Environment Setup
+## Install the optional dependency
 
-Clean installation of Qlib
+From the repository root:
 
-Build extensions
+```bash
+python -m pip install ".[qlib]"
+```
 
-Version validation
+Qlib datasets are intentionally not bundled. Configure a local dataset using Qlib's upstream documentation and keep downloaded data outside this repository. The sanitized notebook checks for a conventional local data directory and fails with a clear message if the data is absent; it does not download data automatically.
 
-Colab-friendly paths
+## Notebook hygiene
 
-✅ 2. Modular Workflow Configuration
+`notebooks/QLIB_NA_WORKFLOW.ipynb` is committed with:
 
-Uses fully configurable YAML-driven structure including:
+- no executed outputs;
+- no credentials, tokens, account identifiers, or private URLs;
+- no model weights or generated reports;
+- no bundled market data;
+- an explicit local-data prerequisite.
 
-Market settings
+The base GitHub Actions job does not install Qlib because it is a heavyweight optional tool and a meaningful Qlib run requires separately prepared market data. Base CI instead validates the notebook JSON and its output-free state.
 
-Dataset + Handler
+## Evidence boundary
 
-Model configuration
-
-Training parameters
-
-Forecast horizon
-
-Backtest configuration
-
-This makes the notebook suitable for production ML pipelines or research workflows.
-
-✅ 3. Dataset Handling
-
-Auto-download
-
-Initialization of Qlib data
-
-Automatic directory structure
-
-✅ 4. Model Training + MLflow Tracking
-
-Saves experiment logs
-
-Saves model artifacts
-
-Tracks metrics (IC, IR, etc.)
-
-Reproducible workflow generation
-
-✅ 5. Full Backtest Engine
-
-Integrated backtest includes:
-
-Predict → Trade pipeline
-
-Portfolio metrics
-
-Plotting and visualization
-
-Automatic report storage
-
-✅ 6. Ready for Deployment
-
-Outputs include:
-
-Workflow YAML
-
-Model weights
-
-Predictions
-
-Backtest results
-
-Performance charts
-
-📂 Project Structure
-QLIB_NA_WORKFLOW.ipynb
-├── workflows/
-│   ├── config.yaml
-│   ├── model/
-│   └── dataset/
-├── mlflow/
-│   └── runs/
-├── results/
-│   ├── predictions/
-│   ├── backtest/
-│   └── metrics/
-└── README.md
-
-▶️ How to Run (Colab)
-
-Upload notebook
-
-Run cell #1 (Setup)
-
-Set your custom paths (optional)
-
-Generate workflow
-
-Train model
-
-Backtest & evaluate results
-
-📊 Outputs
-
-This workflow automatically generates:
-
-predictions.pkl
-
-train_log.txt
-
-backtest_report.json
-
-Equity & drawdown charts
-
-MLflow experiment logs
-
-Workflow config files
-
-✨ Who Is This For?
-
-This project is ideal for:
-
-Quant researchers
-
-Algo traders
-
-ML engineers entering finance
-
-Students building trading portfolios
-
-Anyone building ML workflows with Qlib
-
-📜 License
-
-MIT 
-
-📧 Contact
-
-For collaboration or professional inquiries:
-NeuronAlgo Research
-(https://www.linkedin.com/in/massah)
+A working Qlib environment only demonstrates research tooling. Any future model-performance claim would need an identified dataset, exact split rules, feature definitions, labels, transaction-cost assumptions, hyperparameters, baselines, out-of-sample evaluation, and reproducibility metadata. A backtest cannot guarantee or predict future returns.
