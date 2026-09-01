@@ -153,6 +153,18 @@ class PublicContentTests(unittest.TestCase):
                 resolved = (path.parent / target).resolve()
                 self.assertTrue(resolved.exists(), f"broken link {target!r} in {path.relative_to(ROOT)}")
 
+    def test_markdown_fenced_code_blocks_are_balanced(self) -> None:
+        for path in ROOT.rglob("*.md"):
+            if ".git" in path.parts or ".venv" in path.parts:
+                continue
+            text = path.read_text(encoding="utf-8")
+            fence_lines = sum(1 for line in text.splitlines() if line.lstrip().startswith("```"))
+            self.assertEqual(
+                0,
+                fence_lines % 2,
+                f"unbalanced fenced code block in {path.relative_to(ROOT)}",
+            )
+
     def test_readme_contains_required_public_links_and_boundaries(self) -> None:
         readme = (ROOT / "README.md").read_text(encoding="utf-8")
         for url in (
