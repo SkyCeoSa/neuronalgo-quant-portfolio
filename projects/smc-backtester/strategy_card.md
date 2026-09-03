@@ -1,23 +1,20 @@
-# Strategy Card — Smart Money Concept Backtester (smc_1)
+# Research Card — SMC Direction
 
-Brief: Rule-based SMC concept using short MA vs long MA as a proxy for smart-money directional bias. Modular indicator layer for adding Orderflow/Imbalance.
+**Public maturity:** design note + deterministic metrics smoke test  
+**Current data:** tracked miniature price fixture  
+**Implemented SMC signal logic:** none  
+**Live execution:** none
 
-Universe: Single-symbol demo (extendable to multi-asset)
+## Research hypothesis
 
-Backtest window: toy sample (use full data for production)
+A future public research experiment could formalize selected market-structure concepts—such as swing structure, displacement, liquidity events, or imbalance definitions—into deterministic rules that can be tested without discretionary chart interpretation.
 
-Key metrics (placeholder after run):
-- CAGR: __REPLACE_ME__
-- Volatility: __REPLACE_ME__
-- Sharpe: __REPLACE_ME__
-- Max Drawdown: __REPLACE_ME__
+That hypothesis is **not** implemented by the current `backtest.py`. The current script exists to make fixture loading, return derivation, metric computation, and CI behavior reproducible.
 
-Risk Controls:
-- Maximum position size per trade
-- Daily loss limit
-- Slippage model applied to execution during live
+## Evidence required before stronger claims
 
-Roadmap:
-- Add FVG detection module
-- Implement BO/CHOCH detection
-- Add transaction cost model per venue
+A substantive SMC study would need precise event definitions, timestamp-safe market data, transaction-cost assumptions, leakage controls, train/test separation where parameters are learned, sensitivity analysis, and out-of-sample evaluation. Any partner-facing claim must point to those artifacts directly.
+
+## Risk statement
+
+A backtest, even when fully implemented, would remain historical evidence with limitations. It would not guarantee or predict future returns.
